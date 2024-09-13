@@ -1,0 +1,8 @@
+#btn1, #btn2, #btn3, #btn4 {
+    border: none;
+    border-radius: 3px; 
+    background-color: #5d76a3; 
+    color: white;
+    font-size: 16px; 
+    padding: 10px 20px;
+}
