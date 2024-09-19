@@ -1,0 +1,19 @@
+#titulo{
+    font-size: 24px;
+    color: blue;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-style: underline;
+}
+
+#parrafo1{
+    color: red;
+    text-align: right;
+    font-style: bold;
+}
+
+#parrafo2{
+    color: blue;
+    text-align: left;
+    font-style: bold;
+}

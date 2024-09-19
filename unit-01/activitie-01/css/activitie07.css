@@ -1,0 +1,21 @@
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+th, td{
+    width: 200px;
+}
+th {
+    background-color: black;
+    color: white;
+}
+
+td {
+    border: 1px black solid
+}
+
+td:nth-of-type(2){
+    text-align: center;
+}
