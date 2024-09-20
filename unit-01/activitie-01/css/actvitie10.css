@@ -1,0 +1,28 @@
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+th {
+    width: 170px;
+    font-size: 18px;
+    font-style: bold;
+}
+
+td{
+    border: 1px solid black;
+    font-family: Arial;
+    background-color: white;
+    color: blue;
+    padding: 8px, 4px;
+}
+
+.destacada td{
+    background-color: red;
+    color: white;
+}
+
+.pie {
+    text-align: center;
+    font-size: 12px;
+}
