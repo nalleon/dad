@@ -1,0 +1,12 @@
+
+ul:nth-of-type(n+2) li strong{
+    color: purple   ;
+}
+
+@media (max-width: 1200px) {
+    .
+}
+
+@media (max-width: 1200P) {
+
+}
