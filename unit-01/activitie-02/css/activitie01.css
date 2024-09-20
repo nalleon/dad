@@ -3,10 +3,36 @@ ul:nth-of-type(n+2) li strong{
     color: purple   ;
 }
 
-@media (max-width: 1200px) {
-    .
+.main{
+    display: flex;
 }
 
-@media (max-width: 1200P) {
+@media (max-width: 600px) {
+    .main{ 
+        flex-direction: column;
+    }
 
+    .main h1{
+        font-size: 1.5em;
+        font-family: 'Times New Roman';
+    }
+    .main h2 {
+        font-size: 1.2em;
+        font-family: Arial;
+    }
+
+}
+
+@media (max-width: 1200px), (min-width: 600px) {
+    .main{
+        display: grid;
+
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .main{
+        display: flex;
+    }
 }
