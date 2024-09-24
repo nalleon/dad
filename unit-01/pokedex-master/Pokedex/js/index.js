@@ -29,6 +29,7 @@ const startPokedex = async () => {
             }).then(function(result) {
                 const data = result;
                 const pokemon = new Pokemon (data);
+                console.log(pokemon);
                 pushPokemon(pokemon);
                 //Guardamos el resultado en data y creamos una nueva instancia de Pokemon con los datos obtenidos
                 // almacenamos los resultados en el array
@@ -60,6 +61,7 @@ const showPokedex = async () => {
                 tipo2 = "";          
             aux++; 
         }
+
         // Para cada Pokemon, se crea una tarjeta con imágenes (vista frontal y trasera), el nombre y los tipos
         // Esta estructura HTML se añade dinámicamente al contenedor pokedex
         pokedex.innerHTML +=    `<div class="card">
@@ -69,6 +71,11 @@ const showPokedex = async () => {
                                     <div class="types">
                                         ${tipo1} ${tipo2}
                                     </div>
+                                    <div class="weight">
+                                    ${pokemons[i].pkm_weight / 10} kg
+                                    </div>
                                 </div>`
+
+                            
     }
 }
