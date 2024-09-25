@@ -1,0 +1,30 @@
+.flex{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    align-items: center;
+}
+
+.cover {
+    width: 200px;
+    height: 200px;
+    background-color: grey;
+
+}
+
+.c1{
+    background-image: url(../assets/images/cover1.jpg);
+    background-size: cover;
+}
+
+.c2{
+    background-image: url(../assets/images/cover2.jpg);
+    background-size: cover;
+}
+
+
+.c3{
+    background-image: url(../assets/images/cover3.jpg);
+    background-size: cover;
+}
+

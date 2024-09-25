@@ -1,0 +1,33 @@
+.flex{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    align-items: center;
+}
+
+.cover {
+    width: 200px;
+    height: 200px;
+    background-color: grey;
+
+}
+
+.c1{
+    background-image: url(/cover1.01da7a3c.jpg);
+    background-size: cover;
+}
+
+.c2{
+    background-image: url(/cover2.4ee97fb8.jpg);
+    background-size: cover;
+}
+
+
+.c3{
+    background-image: url(/cover3.e55ef185.jpg);
+    background-size: cover;
+}
+
+
+
+/*# sourceMappingURL=/css.967bad95.css.map */
