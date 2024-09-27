@@ -1,15 +1,15 @@
 .flex{
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
     align-items: center;
+    margin-top: 40px;
+
 }
 
 .cover {
     width: 200px;
     height: 200px;
     background-color: grey;
-
 }
 
 .c1{
@@ -28,3 +28,43 @@
     background-size: cover;
 }
 
+.vinyl{
+    position: relative;
+    margin: auto;
+    background-color: black;
+    height: 190px;
+    width: 190px;
+    border-radius: 100%;
+    z-index: -1;
+}
+
+
+.detail{
+    margin: auto;
+    background-color: rgb(218, 183, 107);
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+}
+
+.label{
+    margin: auto;
+    background-color: rgb(194, 151, 95);
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+}
+
+.hole{
+    margin: auto;
+    background-color: rgb(241, 241, 241);
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 100%;
+}
+
+
+.open + .vinyl{
+    transform: translateX(150px);
+    transition: transform 3s;
+}
