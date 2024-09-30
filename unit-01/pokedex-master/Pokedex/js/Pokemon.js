@@ -8,5 +8,6 @@ export default class Pokemon {
         this.pkm_back = data.sprites.back_default;      // Pokemon de espaldas
         this.pkm_type = data.types;                     // Tipo del pokemon (Devuelve un array)
         this.pkm_weight = data.weight;                 // Peso del pokemon
+        this.pkm_stats = data.stats;              // Estadísticas del pokemon (Devuelve un array)
     }
 }

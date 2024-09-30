@@ -1,4 +1,4 @@
-// Importamos la clase Pokemon desde el archivo Pokemon.js
+ // Importamos la clase Pokemon desde el archivo Pokemon.js
 import Pokemon from './Pokemon.js';
 
 // Creamos un array para los 151 pokemons que obtendremos desde la API
@@ -20,7 +20,7 @@ button.addEventListener("click", () => {
 // Función asíncrona que va a realizar operaciones con promesas para realizar la llamada a la API
 const startPokedex = async () => {
     // Bucle for que itera desde 1 hasta 151, que son los primeros 151 Pokemon
-    for(var i = 1; i <= 151; i++) {
+    for(var i = 152; i <= 251; i++) {
         // Utilizamos fetch para hacer una solicitud a la API donde i representa el número de Pokemon
         await fetch("https://pokeapi.co/api/v2/pokemon/" + i + "/")
             .then(function(result) {
@@ -62,6 +62,11 @@ const showPokedex = async () => {
             aux++; 
         }
 
+
+        
+        
+
+
         // Para cada Pokemon, se crea una tarjeta con imágenes (vista frontal y trasera), el nombre y los tipos
         // Esta estructura HTML se añade dinámicamente al contenedor pokedex
         pokedex.innerHTML +=    `<div class="card">
@@ -73,6 +78,9 @@ const showPokedex = async () => {
                                     </div>
                                     <div class="weight">
                                     ${pokemons[i].pkm_weight / 10} kg
+                                    </div>
+                                    <div class="stats">
+                                    ${pokemons[i].pkm_hp}
                                     </div>
                                 </div>`
 

@@ -50,7 +50,7 @@ body {
  
 .card {
     text-align: center;
-    border: 2px solid rgb(78,78,78);
+    border: 2px linear-gradient( rgb(88,88,88),rgb(255,255,255));
     border-radius: 5px;
     background: linear-gradient( rgb(88,88,88),rgb(255,255,255));
     font-family: 'DejaVu Sans Mono', 'monospace';
