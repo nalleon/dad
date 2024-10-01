@@ -3,10 +3,10 @@ export default class Champion {
         this.name = data.name;                       
         this.version = data.version;                             
         this.title = data.title;   
-        //this.description = data.blurb;   
-        //this.info = data.info;                   
+        this.description = data.blurb;   
+        this.info = data.info;                   
         //this.img = data.image.full;               
-        //this.tags = data.tags; 
+        this.tags = data.tags; 
     }
 
 }

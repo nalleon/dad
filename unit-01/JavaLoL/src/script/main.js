@@ -23,14 +23,13 @@ const getChampions = async () => {
         await fetch("https://ddragon.leagueoflegends.com/cdn/13.18.1/data/es_ES/champion.json")
             .then(function(result) {
                 return result.json();
-            }).then(foreach ($champion in result.data)) {
-                const champion = new Champion(data);
-                console.log(champion);
-                pushChampions(champion);
-                //Guardamos el resultado en data y creamos una nueva instancia de championcon los datos obtenidos
-                // almacenamos los resultados en el array
-               // console.log(champion);
-            }
+            }).then(function(result) {
+                for (let championData in result.data){
+                    let data = result.data[championData];
+                    let champion = new Champion(data);
+                    pushChampions(champion);
+                }
+            });
 
     // Una vez que todos los championse han añadido al array, llamamos a la función showChampions
     await showChampions();
@@ -46,37 +45,27 @@ const showChampions = async () => {
     // Se obtiene una referencia al elemento con el ID champions en el DOM donde se insertarán las tarjetas de los Pokemon.
     const champions = document.getElementById("champions");
     // Iteramos sobre cada elemento del array championsList
-    for(var i = 0; i < championsList.length; i++) {
+   for(var i = 0; i < championsList.length; i++) {
         var aux =  0;
-        while (aux != championsList[i].pkm_type.length) {
-            if (aux == 0)
-                var tipo1 = championsList[i].pkm_type[aux].type.name;                       
-            if (aux == 1)   
-                var tipo2 = championsList[i].pkm_type[aux].type.name;
-            else 
-                tipo2 = "";          
-            aux++; 
-        }
-
-
-        
-        
-
-
+      
         // Para cada Pokemon, se crea una tarjeta con imágenes (vista frontal y trasera), el nombre y los tipos
         // Esta estructura HTML se añade dinámicamente al contenedor champions
         champions.innerHTML +=    `<div class="card">
-                                    <img src="${championsList[i].pkm_back}">
-                                    <img class="front" src="${championsList[i].pkm_front}"><br>
-                                    ${championsList[i].id}. ${championsList[i].name}<br>
+                                    <img src="${championsList[i].img}">
                                     <div class="types">
-                                        ${tipo1} ${tipo2}
+                                    ${championsList[i].name}
                                     </div>
-                                    <div class="weight">
-                                    ${championsList[i].pkm_weight / 10} kg
+                                    <div class="types">
+                                    ${championsList[i].version}
                                     </div>
-                                    <div class="stats">
-                                    ${championsList[i].pkm_hp}
+                                    <div class="types">
+                                    ${championsList[i].title} 
+                                    </div>
+                                    <div class="types">
+                                    ${championsList[i].description}
+                                    </div>
+                                    <div class="types">
+                                    ${championsList[i].info}
                                     </div>
                                 </div>`
 

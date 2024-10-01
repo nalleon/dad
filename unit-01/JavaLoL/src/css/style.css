@@ -2,3 +2,91 @@ body {
     background-color: rgb(19, 19, 19);
     color: rgb(231, 231, 231);
 }
+
+
+.header {
+    text-align: center;
+ }
+ 
+ 
+ .logo {
+    width: 600px;
+    height: 200px;
+ }
+ 
+ 
+ .body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ 
+ 
+ .button {
+    color: white;
+    background-color: transparent;
+    border: white 1px solid;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Times New Roman',;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0,2), 0 6px 20px 0 rgba(0, 0, 0, 0, 19);
+    border-radius: 8px;
+ }
+ 
+ .button:hover {
+    background-color: white;
+    color:rgb(19, 19, 19);
+ }
+ 
+ #pokedex {
+    display: grid;
+    /**
+    * Como vamos a trabajar en el grid
+    */
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px, 10px;
+    width: 100%;
+ }
+ 
+ 
+.card {
+    text-align: center;
+    border: 2px linear-gradient( rgb(88,88,88),rgb(255,255,255));
+    border-radius: 5px;
+    background: linear-gradient( rgb(88,88,88),rgb(255,255,255));
+    font-family: 'DejaVu Sans Mono', 'monospace';
+    margin: 10px;
+ }
+ 
+ 
+.types {   
+    border: 1px solid rgb(199, 127, 85);
+    font-weight: bold;
+    background: linear-gradient(rgb(189, 133, 82),rgb(161, 85, 41));
+}
+ 
+ 
+.card .front {
+    display: none;
+}
+
+.card:hover img{
+    display: none;
+}
+
+.card:hover .front{
+    animation: resizePokemon 1s infinite;
+    display: inline-block;
+}
+
+@keyframes resizePokemon {
+   0%{
+     transform: scale(1);
+   } 100% {
+     transform: scale(1.2);
+   }
+}
+
