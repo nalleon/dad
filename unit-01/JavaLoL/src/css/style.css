@@ -1,6 +1,7 @@
 body {
-    background-color: rgb(19, 19, 19);
+    background-color: rgb(0, 0, 0);
     color: rgb(231, 231, 231);
+    height: 100vh;
 }
 
 
@@ -10,13 +11,16 @@ body {
  
  
  .logo {
-    width: 600px;
-    height: 200px;
+    margin-top: 2rem;
+    width: 300px;
+    height: 100px;
+    filter: invert(1);
  }
  
  
  .body {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
  }
@@ -26,14 +30,15 @@ body {
     color: white;
     background-color: transparent;
     border: white 1px solid;
-    padding: 15px 32px;
+    margin-top: 1rem;
+    padding: 10px 22px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 1rem;
     font-family: 'Times New Roman',;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0,2), 0 6px 20px 0 rgba(0, 0, 0, 0, 19);
-    border-radius: 8px;
+    border-radius: 15px;
  }
  
  .button:hover {
@@ -41,52 +46,82 @@ body {
     color:rgb(19, 19, 19);
  }
  
- #pokedex {
-    display: grid;
-    /**
-    * Como vamos a trabajar en el grid
-    */
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: 10px, 10px;
-    width: 100%;
+ #champions {
+   display: grid;
+   grid-template-columns: repeat(5, 3fr);
+   grid-gap: 10px, 10px;
+   width: 100%;
  }
  
  
 .card {
-    text-align: center;
-    border: 2px linear-gradient( rgb(88,88,88),rgb(255,255,255));
-    border-radius: 5px;
-    background: linear-gradient( rgb(88,88,88),rgb(255,255,255));
-    font-family: 'DejaVu Sans Mono', 'monospace';
-    margin: 10px;
+   text-align: center;
+   border-radius: 5px;
+   background: transparent;
+   font-family:'Impact','Arial Narrow Bold';
+   margin: 10px;
  }
  
  
-.types {   
-    border: 1px solid rgb(199, 127, 85);
-    font-weight: bold;
-    background: linear-gradient(rgb(189, 133, 82),rgb(161, 85, 41));
+.title{
+   font-family:Georgia, 'Times New Roman';
+   font-weight: bolder;
+   font-style: italic;
+   color: rgb(201, 152, 88);
+}
+
+.description{
+   font-family:'Courier New', Courier, monospace;
+   font-size: 0.7rem;
+   color: rgb(255, 255, 255);
+   border: 1px solid white;
+   margin: 10px, 10px;
+   padding: 10px, 10px;
+
+}
+
+.description:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+.version {
+   margin-top: 1rem;
+   font-size: 0.7rem;
+   color: rgb(255, 255, 255);
 }
  
- 
-.card .front {
+.card img {
+   width: 8.5rem;
+   filter:grayscale(1);
+}
+
+.card img:hover, img{
+   filter: opacity(1) drop-shadow(0 0 0 rgb(218, 190, 101));
+   visibility: visible;
+}
+
+.card .info {
     display: none;
 }
 
-.card:hover img{
-    display: none;
+.card:hover .info{
+    display: block;
+
 }
 
-.card:hover .front{
-    animation: resizePokemon 1s infinite;
-    display: inline-block;
+.card:hover, .description:hover {
+   animation-name: bringBackColor;
+   animation-duration: 2.5s;
+   transition-delay: 0s;
 }
 
-@keyframes resizePokemon {
+
+@keyframes bringBackColor {
    0%{
-     transform: scale(1);
-   } 100% {
-     transform: scale(1.2);
+      filter: grayscale(1);
+   } 100%{
+      filter: grayscale(0);
    }
 }
 

@@ -1,25 +1,19 @@
-//https://ddragon.leagueoflegends.com/cdn/13.18.1/data/es_ES/champion.json
-
 import Champion from './champion.js';
 
 var championsList = [];
 
-// Seleccionamos el elemento button del DOM usando querySelector 
 const button = document.querySelector("button");
-// Agregamos un event listener al botón para que se mantenga a la espera de hacer click en él
-// Cuando se recibe el click, se ejecuta la función flecha
+const championListHtml = document.querySelectorAll(".card");
+let championsLts
+let championsDisplayed = [];
 button.addEventListener("click", () => {
-    // Al hacer click sobre el botón, cambiamos su visibilidad y lo ocultamos
+
     document.querySelector('#button').style.visibility = 'hidden';
-    // También cambiamos la visibilidad del elemento #champions, y lo mostramos en pantalla
     document.querySelector('#champions').style.visibility = 'visible';
-    // LLamada a la función getChampions() que comenzará el proceso de mostrar los Pokemon
     getChampions();
 });
 
-// Función asíncrona que va a realizar operaciones con promesas para realizar la llamada a la API
 const getChampions = async () => {
-        // Utilizamos fetch para hacer una solicitud a la API donde i representa el número de Pokemon
         await fetch("https://ddragon.leagueoflegends.com/cdn/13.18.1/data/es_ES/champion.json")
             .then(function(result) {
                 return result.json();
@@ -27,49 +21,69 @@ const getChampions = async () => {
                 for (let championData in result.data){
                     let data = result.data[championData];
                     let champion = new Champion(data);
+                    champion.setImg(`https://ddragon.leagueoflegends.com/cdn/14.19.1/img/champion/${data.id}.png`);
                     pushChampions(champion);
                 }
             });
 
-    // Una vez que todos los championse han añadido al array, llamamos a la función showChampions
     await showChampions();
 };
 
-// Esta función añade el championque se le pasa como parámetro al array
 function pushChampions(champion) {
     championsList.push(champion);
 }
 
-// Esta función se encarga de mostrar en el DOM los championque se han obtenido y almacenado en el array 
 const showChampions = async () => {
-    // Se obtiene una referencia al elemento con el ID champions en el DOM donde se insertarán las tarjetas de los Pokemon.
-    const champions = document.getElementById("champions");
-    // Iteramos sobre cada elemento del array championsList
+const champions = document.getElementById("champions");
    for(var i = 0; i < championsList.length; i++) {
-        var aux =  0;
       
-        // Para cada Pokemon, se crea una tarjeta con imágenes (vista frontal y trasera), el nombre y los tipos
-        // Esta estructura HTML se añade dinámicamente al contenedor champions
-        champions.innerHTML +=    `<div class="card">
-                                    <img src="${championsList[i].img}">
-                                    <div class="types">
-                                    ${championsList[i].name}
-                                    </div>
-                                    <div class="types">
-                                    ${championsList[i].version}
-                                    </div>
-                                    <div class="types">
-                                    ${championsList[i].title} 
-                                    </div>
-                                    <div class="types">
-                                    ${championsList[i].description}
-                                    </div>
-                                    <div class="types">
-                                    ${championsList[i].info}
+        champions.innerHTML +=`<div class="card">
+                                    <img src="${championsList[i].img}" id="img">
+                                    <div class="info">
+                                        <h2>${championsList[i].name}</h2>
+                                        <div class="title">
+                                            <h3> ${championsList[i].title} </h3>
+                                        </div>
+                                        <div class="description">
+                                            ${championsList[i].description}
+                                        </div>    
+                                        <div class="version">
+                                            ${championsList[i].version}
+                                        </div>
                                     </div>
                                 </div>`
 
                             
     }
+
+
+}
+/**
+ *  <div class="description">
+                                        ${championsList[i].description}
+                                        </div>
+ */
+
+
+championListHtml.addEventListener('click', addChampionToDisplayed(evt));
+
+// show another image when click over the current image
+function eventImg(evt) {
+    var target = evt.target;
+    var champion = championsList.find(champion => champion.name === target.parentElement.querySelector('.info h2').innerText);
+   // document.getElementById('img').src=`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_0.png`;
+    champion.setImg(`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_0.png`);
 }
 
+// function to add to an array wich champions has been displayed to keep the icons colored
+
+function addChampionToDisplayed(champion) {
+    // check if champion has already been displayed
+    if (!championsListHtml.some(el => el.querySelector('.info h2').innerText === champion.name)) {
+        championsListHtml.forEach(championElement => {
+            if (championElement.querySelector('.info h2').innerText === champion.name) {
+                championElement.classList.add('displayed');
+            }
+        });
+    }
+}
