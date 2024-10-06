@@ -5,18 +5,19 @@ export default class Champion {
         this.version = data.version;                             
         this.title = (data.title).toUpperCase();   
         this.description = (data.blurb).toUpperCase();   
-        this.info = data.info;                   
         this.img = data.image.full;               
-        this.tags = data.tags; 
+        this.tags = data.tags;
+        this.partype = data.partype.toUpperCase();
+
+        this.attack = data.info.attack; 
+        this.defense = data.info.defense; 
+        this.magic = data.info.magic;    
+        this.difficulty = data.info.difficulty;
+        
     }
 
     setImg(splashUrl) {
         this.img = splashUrl;
     }
-
-    setAnotherImg(splashUrl) {
-        this.img = splashUrl;
-    }
-
     
 }
