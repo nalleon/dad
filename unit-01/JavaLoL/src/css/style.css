@@ -13,10 +13,13 @@ body {
    margin-top: 2rem;
    width: 380px;
    height: 200px;
-   filter: invert(1);
+   filter: grayscale(1);
    cursor: pointer;
 }
 
+.logo:hover{
+   filter: grayscale(0);
+}
 .body {
    display: flex;
    flex-direction: row;
@@ -37,7 +40,7 @@ body {
    display: inline-block;
    font-size: 1.25rem;
    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-   border-radius: 15px;
+   border-radius: 30px;
    cursor: pointer;
 }
 
@@ -54,14 +57,19 @@ body {
    justify-items: center;
 }
 
+/**
+* For icons version
+*/
 .card {
    text-align: center;
    border-radius: 5px;
-   background-color: transparent;
+   background: transparent;
    font-family:'Trebuchet MS', 'Lucida Sans Unicode';
    font-size: medium;
    margin: 10px;
    transition: all 0.8s ease;
+   padding-bottom: 1.5rem;
+
 }
 
 
@@ -82,11 +90,10 @@ body {
    margin: auto;
    align-items: center;
    border-radius: 30px;
-
 }
 
 .tags {
-   background: linear-gradient(rgb(170, 170, 170), rgb(65, 78, 102));
+   background: linear-gradient(rgb(89, 148, 166), rgb(48, 65, 98));
    font-weight: 900;
    margin: 10px auto;
    width: 70%;
@@ -114,7 +121,7 @@ td {
 }
 
 th {
-   background: linear-gradient(rgb(170, 170, 170), rgb(65, 78, 102));
+   background: linear-gradient(rgb(133, 133, 133), rgb(65, 78, 102));
    padding: 8px;
 }
 
@@ -131,7 +138,7 @@ td:hover{
 .partype{
    font-weight: 900;
    font-size: 0.9rem;
-   background: linear-gradient(rgb(170, 170, 170), rgb(65, 78, 102));
+   background: linear-gradient(rgb(133, 133, 133), rgb(65, 78, 102));
    color: rgb(255, 255, 255);
    width: 70%;
    margin: auto;
@@ -150,26 +157,58 @@ td th {
    width: 8.5rem;
    filter: grayscale(1);
    transition: filter 0.8s ease;
-   cursor: pointer;
 }
 
+.card img{
+   margin-top: 1rem;
+   width: 5rem;
+   height: auto;
+   border-radius: 100%;
+}
 
 .card .info {
    display: none;
 }
 
 
+.card:hover{
+   animation: cardInfo 1s ease;
+   border: 1px solid white;
+}
+
+@keyframes cardInfo {
+   from {
+      height: 0%;
+   }
+   to {
+      height: 89%;
+   }
+}
+
+@keyframes displayInfo {
+   from{
+      opacity: 0;
+      transform: translateY(-20px);
+   }
+   to{
+      transform: translateY(0px);
+      opacity: 1;
+   }
+      
+}
 
 /**
 * For .card and .full-card
 */
 
+
 .card:hover .info, .full-card:hover .info{
+   animation: displayInfo 2.5s ease;
    display: block;
 }
 
 .card:hover, .description:hover, .full-card:hover {
-   transition: all 0.8s ease;
+   transition: 0.8s ease;
 }
 
 .card:hover img, .full-card:hover img {
@@ -178,7 +217,7 @@ td th {
 
 
 /**
-* For full-card
+* For full version
 */
 
 .full-card img {
@@ -186,13 +225,14 @@ td th {
    width: 18rem;
    height: auto;
    border-radius: 10px;
+   cursor: pointer;
 }
 
 .full-card {
    text-align: center;
    width: 20rem;
    height: auto;
-   background: linear-gradient(rgb(159, 159, 159), rgb(29, 29, 29));
+   background: linear-gradient(rgb(159, 159, 159), rgb(34, 37, 43));
    border: 1px rgb(86, 86, 86) solid;
    border-radius: 10px; 
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -210,3 +250,11 @@ td th {
    margin: 1rem;
 }
 
+/**
+*  Media queries
+*/
+
+@media screen and (max-width: 600px) {
+   
+
+}
