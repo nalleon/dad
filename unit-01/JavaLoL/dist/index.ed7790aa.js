@@ -590,21 +590,29 @@ var _championJsDefault = parcelHelpers.interopDefault(_championJs);
 var championsList = [];
 const buttonIcons = document.getElementById("buttonIcons");
 const buttonFull = document.getElementById("buttonFull");
-buttonIcons.addEventListener("click", ()=>{
+/**
+ * Eventlistener on click for icons display
+ */ buttonIcons.addEventListener("click", ()=>{
     document.querySelector("#champions").style.visibility = "visible";
     hideButtons();
     getChampionsIcons();
 });
-buttonFull.addEventListener("click", ()=>{
+/**
+ * Eventlistener on click for full image display
+ */ buttonFull.addEventListener("click", ()=>{
     document.querySelector("#champions").style.visibility = "visible";
     hideButtons();
     getChampionsFull();
 });
-function hideButtons() {
+/*
+* Function to hide the buttons
+*/ function hideButtons() {
     buttonIcons.style.visibility = "hidden";
     buttonFull.style.visibility = "hidden";
 }
-const getChampionsIcons = async ()=>{
+/**
+ * Async function to get the champions' icons
+ */ const getChampionsIcons = async ()=>{
     await fetch("https://ddragon.leagueoflegends.com/cdn/13.18.1/data/es_ES/champion.json").then(function(result) {
         return result.json();
     }).then(function(result) {
@@ -617,7 +625,9 @@ const getChampionsIcons = async ()=>{
     });
     await showChampions();
 };
-const getChampionsFull = async ()=>{
+/**
+ * Async function to get the champions' full art
+ */ const getChampionsFull = async ()=>{
     await fetch("https://ddragon.leagueoflegends.com/cdn/13.18.1/data/es_ES/champion.json").then(function(result) {
         return result.json();
     }).then(function(result) {
@@ -630,10 +640,15 @@ const getChampionsFull = async ()=>{
     });
     await showChampionsFullImg("full");
 };
-function pushChampions(champion) {
+/**
+ * Function to add the champion to the array
+ * @param {*} champion 
+ */ function pushChampions(champion) {
     championsList.push(champion);
 }
-const showChampions = async ()=>{
+/**
+ * Async function to show the champion's icons
+ */ const showChampions = async ()=>{
     const champions = document.getElementById("champions");
     champions.innerHTML = "";
     for(var i = 0; i < championsList.length; i++)champions.innerHTML += `
@@ -671,7 +686,9 @@ const showChampions = async ()=>{
             </div>
         </div>`;
 };
-const showChampionsFullImg = async ()=>{
+/**
+ * Async function to show the champion's full image
+ */ const showChampionsFullImg = async ()=>{
     const champions = document.getElementById("champions");
     champions.innerHTML = "";
     for(var i = 0; i < championsList.length; i++)champions.innerHTML += `
@@ -689,7 +706,9 @@ const showChampionsFullImg = async ()=>{
                     </div>`;
     changeSkin();
 };
-const changeSkin = ()=>{
+/**
+     * Function to change the skin of the champion
+     */ const changeSkin = ()=>{
     championsList.forEach((champion, index)=>{
         let skinIndex = 0;
         const maxSkinPerChampion = 1;

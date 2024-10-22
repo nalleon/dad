@@ -5,7 +5,9 @@ var championsList = [];
 const buttonIcons = document.getElementById("buttonIcons");
 const buttonFull = document.getElementById("buttonFull");
 
-
+/**
+ * Eventlistener on click for icons display
+ */
 buttonIcons.addEventListener("click", () => {
     document.querySelector('#champions').style.visibility = 'visible';
     hideButtons();
@@ -13,7 +15,9 @@ buttonIcons.addEventListener("click", () => {
 });
 
 
-
+/**
+ * Eventlistener on click for full image display
+ */
 buttonFull.addEventListener("click", () => {
     document.querySelector('#champions').style.visibility = 'visible';
     hideButtons();
@@ -21,10 +25,17 @@ buttonFull.addEventListener("click", () => {
 });
 
 
+/*
+* Function to hide the buttons
+*/
 function hideButtons() {
     buttonIcons.style.visibility = 'hidden';
     buttonFull.style.visibility = 'hidden';
 }
+
+/**
+ * Async function to get the champions' icons
+ */
 
 const getChampionsIcons = async () => {
         await fetch("https://ddragon.leagueoflegends.com/cdn/13.18.1/data/es_ES/champion.json")
@@ -42,7 +53,9 @@ const getChampionsIcons = async () => {
     await showChampions();
 };
 
-
+/**
+ * Async function to get the champions' full art
+ */
 const getChampionsFull = async () => {
     await fetch("https://ddragon.leagueoflegends.com/cdn/13.18.1/data/es_ES/champion.json")
         .then(function(result) {
@@ -59,11 +72,18 @@ const getChampionsFull = async () => {
 await showChampionsFullImg("full");
 };
 
+/**
+ * Function to add the champion to the array
+ * @param {*} champion 
+ */
 
 function pushChampions(champion) {
     championsList.push(champion);
 }
 
+/**
+ * Async function to show the champion's icons
+ */
 const showChampions = async () => {
 const champions = document.getElementById("champions");
 champions.innerHTML = '';
@@ -107,6 +127,10 @@ champions.innerHTML = '';
 
 }
 
+
+/**
+ * Async function to show the champion's full image
+ */
     const showChampionsFullImg = async () => {
         const champions = document.getElementById("champions");
         champions.innerHTML = '';
@@ -128,14 +152,15 @@ champions.innerHTML = '';
         changeSkin();
     }
 
-
+    /**
+     * Function to change the skin of the champion
+     */
     const changeSkin = () => {
         championsList.forEach((champion, index) => {
             let skinIndex = 0;
             const maxSkinPerChampion = 1; 
             const championImg = document.getElementById(`img-${index}`);
     
-            
             championImg.addEventListener("click", async () => {
                 skinIndex = (skinIndex + 1) % (maxSkinPerChampion + 1);
 
