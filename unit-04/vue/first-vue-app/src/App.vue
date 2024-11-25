@@ -1,19 +1,38 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <h2>¡Hola mundo!</h2>
-  <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
+<template id="app">
+  <div>
+    <h1>Práctica de componentes</h1>  
+      <MiComponente mensaje="Mensaje 1" @mensajeEnviado="mostrarMensaje" />
+      <MiComponente mensaje="Mensaje 2" @mensajeEnviado="mostrarMensaje" />
+      <MiComponente mensaje="Mensaje 3" @mensajeEnviado="mostrarMensaje" />
+      <p>{{ mensajeDesdeHijo }}</p>
+  </div>
+  
 </template>
 
+
 <script>
-//import HelloWorld from './components/HelloWorld.vue'
+
+import HelloWorld from './components/HelloWorld.vue'
+import MiComponente from './components/MiComponente.vue'
 
 export default {
   name: 'App',
-  /**
-   * components: {
-    HelloWorld
-  }*/
-}
+    components: {
+    HelloWorld,
+    MiComponente
+  },
+  data() {
+return {
+      mensajeDesdeHijo: "",
+    };
+  },
+    methods: {
+      mostrarMensaje(mensaje) {
+        this.mensajeDesdeHijo = mensaje;
+      },
+    },
+};
+
 </script>
 
 <style>
@@ -25,4 +44,11 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+h2 {
+    color: rgb(119, 119, 173);
+}
+
 </style>
+
+
