@@ -1,38 +1,14 @@
 <template id="app">
   <div>
-    <h1>Práctica de componentes</h1>  
-      <MiComponente mensaje="Mensaje 1" @mensajeEnviado="mostrarMensaje" />
-      <MiComponente mensaje="Mensaje 2" @mensajeEnviado="mostrarMensaje" />
-      <MiComponente mensaje="Mensaje 3" @mensajeEnviado="mostrarMensaje" />
-      <p>{{ mensajeDesdeHijo }}</p>
+    <h2>Posts list:</h2>
+    <PostContainer/>
   </div>
   
 </template>
 
 
-<script>
-
-import HelloWorld from './components/HelloWorld.vue'
-import MiComponente from './components/MiComponente.vue'
-
-export default {
-  name: 'App',
-    components: {
-    HelloWorld,
-    MiComponente
-  },
-  data() {
-return {
-      mensajeDesdeHijo: "",
-    };
-  },
-    methods: {
-      mostrarMensaje(mensaje) {
-        this.mensajeDesdeHijo = mensaje;
-      },
-    },
-};
-
+<script setup>
+import PostContainer from './components/practice01/PostContainer.vue'
 </script>
 
 <style>
