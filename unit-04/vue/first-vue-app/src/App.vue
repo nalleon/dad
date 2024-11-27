@@ -1,14 +1,16 @@
 <template id="app">
   <div>
-    <h2>Posts list:</h2>
-    <PostContainer/>
+    <CounterOption/>
+    <CounterComposition/>
   </div>
   
 </template>
 
 
 <script setup>
-import PostContainer from './components/practice01/PostContainer.vue'
+//import PostContainer from './components/practice01/PostContainer.vue'
+import CounterOption from './components/practice02/CounterOption.vue'
+import CounterComposition from './components/practice02/CounterComposition.vue'
 </script>
 
 <style>
